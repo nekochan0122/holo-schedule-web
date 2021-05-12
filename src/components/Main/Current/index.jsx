@@ -15,9 +15,11 @@ const Current = _ => {
   }
 
   useEffect(_ => {
-    const refresh = setInterval(function () {
+    fetchData(setCurrent, getCurrent)
+
+    const refresh = setInterval(() => {
       fetchData(setCurrent, getCurrent)
-    }(), 60 * 1000)
+    }, 60 * 1000)
 
     return () => clearInterval(refresh)
   }, [])
