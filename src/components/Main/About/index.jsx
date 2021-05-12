@@ -9,7 +9,7 @@ const About = _ => {
 
       <Typography align='center' variant='subtitle2' color='textPrimary' >
         Powered by
-        <Link href='https://github.com/YunzheZJU/non-stop-story'> Non-stop-story</Link>
+        <Link href='https://github.com/YunzheZJU/non-stop-story' target='_blank' rel='noreferrer'> Non-stop-story</Link>
         <br />
         Discord : NekoChan#2851
       </Typography>
