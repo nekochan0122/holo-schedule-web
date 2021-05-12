@@ -1,4 +1,4 @@
-# Holo Schedule Web
+# [Holo Schedule Web](holoschedule.cf/build/)
 
 ### [NekoChanTaiwan/holo-schedule-web](https://github.com/NekoChanTaiwan/holo-schedule-web)
 
