@@ -8,7 +8,7 @@ const About = _ => {
       <Divider />
 
       <Typography align='center' variant='subtitle2' color='textPrimary' >
-        Powered by
+        Powered by&nbsp;
         <Link href='https://github.com/YunzheZJU/non-stop-story' target='_blank' rel='noreferrer'>Non-stop-story</Link>
         <br />
         Discord : NekoChan#2851
