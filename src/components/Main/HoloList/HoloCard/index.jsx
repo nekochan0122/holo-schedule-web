@@ -52,7 +52,7 @@ const HoloCard = props => {
                   {props.member.name}
                 </Typography>
                 <Typography className={classes.bold} variant='body2' color='textPrimary'>
-                  {time.format('LT')} {time.fromNow()}
+                  {time.format('LT')} , {time.fromNow()}
                 </Typography>
               </Grid>
             </Grid>
