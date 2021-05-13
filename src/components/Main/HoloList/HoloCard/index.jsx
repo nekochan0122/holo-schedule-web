@@ -37,7 +37,7 @@ const HoloCard = props => {
     <a className={classes.link} href={`https://youtu.be/${props.room}`} target='_blank' rel="noreferrer" >
       <Card className={classes.card} raised>
         <CardActionArea>
-          <CardMedia className={classes.title} image={props.cover} component='img' />
+          <CardMedia className={classes.title} image={props.cover} width='337' height='190' component='img' />
           <CardContent>
             <Typography variant='inherit' gutterBottom noWrap component='h2'>{props.title}</Typography>
             <Grid container spacing={1} alignItems='center'>
