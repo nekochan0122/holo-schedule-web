@@ -36,23 +36,40 @@ const HoloCard = props => {
 
   const time = dayjs(props['start_at'])
 
-  const link = props.platform === 'youtube' ? `https://youtu.be/${props.room}` :
-               props.platform === 'twitch' ? `https://www.twitch.tv/${props.room}` : '#'
+  const { platform, room, cover, title, member } = props
+
+  let link, showPlatform
+
+  switch(platform) {
+    case 'youtube' :
+      link = `https://youtu.be/${room}`
+      showPlatform = 'YouTube'
+      break
+
+    case 'twitch' :
+      link = `https://www.twitch.tv/${room}`
+      showPlatform = 'Twitch'
+      break
+
+    default :
+      link = '#'
+      showPlatform = 'Unknow'
+  }
 
   return (
     <a className={classes.link} href={link} target='_blank' rel="noreferrer" >
       <Card className={classes.card} raised>
         <CardActionArea>
-          <CardMedia className={classes.title} image={props.cover} width='337' height='190' component='img' />
+          <CardMedia className={classes.title} image={cover} width='337' height='190' component='img' />
           <CardContent>
-            <Typography variant='inherit' gutterBottom noWrap component='h2'>{props.title}</Typography>
+            <Typography variant='inherit' gutterBottom noWrap component='h2'>{title}</Typography>
             <Grid container spacing={1} alignItems='center'>
               <Grid item>
-                <Avatar src={props.member.avatar} />
+                <Avatar src={member.avatar} />
               </Grid>
               <Grid item>
                 <Typography className={classes.bold} >
-                  {props.member.name}
+                  {member.name} | {showPlatform}
                 </Typography>
                 <Typography className={classes.bold} variant='body2' color='textPrimary'>
                   {time.format('LT')} , {time.fromNow()}
