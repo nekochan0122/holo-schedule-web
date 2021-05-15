@@ -36,8 +36,11 @@ const HoloCard = props => {
 
   const time = dayjs(props['start_at'])
 
+  const link = props.platform === 'youtube' ? `https://youtu.be/${props.room}` :
+               props.platform === 'twitch' ? `https://www.twitch.tv/${props.room}` : '#'
+
   return (
-    <a className={classes.link} href={`https://youtu.be/${props.room}`} target='_blank' rel="noreferrer" >
+    <a className={classes.link} href={link} target='_blank' rel="noreferrer" >
       <Card className={classes.card} raised>
         <CardActionArea>
           <CardMedia className={classes.title} image={props.cover} width='337' height='190' component='img' />
