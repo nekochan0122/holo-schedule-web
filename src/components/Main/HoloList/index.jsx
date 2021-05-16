@@ -35,20 +35,15 @@ const HoloList = props => {
     <Grid container justify='flex-start' className={classes.container}>{
       props.holoData === undefined || members.length === 0 || channels.length === 0 ?
       <Typography variant='h6'>Loading...</Typography> :
-      props.holoData.map(curObj => {
-        return (
-          <Grid item key={curObj.id} className={classes.item}>
-            <HoloCard {...curObj}
-              member={
-                members.find(memObj => {
-                  return memObj.id === channels.find(chaObj => {
-                    return chaObj.channel === curObj.channel
-                  }).member_id
-                })
-              }/>
-          </Grid>
-        )
-      })
+      props.holoData.map(dataObj => {(
+        <Grid item key={dataObj.id} className={classes.item}>
+          <HoloCard {...dataObj} member={members.find(memObj => {
+            return memObj.id === channels.find(chaObj => {
+              return chaObj.channel === dataObj.channel
+            }).member_id
+          })}/>
+        </Grid>
+      )})
     }</Grid>
   )
 }
