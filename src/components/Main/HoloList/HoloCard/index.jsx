@@ -28,6 +28,10 @@ const useStyles = makeStyles(theme => ({
     '&:focus, &:hover, &:visited, &:link, &:active': {
       textDecoration: 'none',
     },
+  },
+  name: {
+    fontWeight: 'bold',
+    fontSize: '17px',
   }
 }))
 
@@ -68,7 +72,7 @@ const HoloCard = props => {
                 <Avatar src={member.avatar} />
               </Grid>
               <Grid item>
-                <Typography className={classes.bold} >
+                <Typography className={classes.name} >
                   {member.name} | {showPlatform}
                 </Typography>
                 <Typography className={classes.bold} variant='body2' color='textPrimary'>
