@@ -8,6 +8,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import Current from './Current'
 import Scheduled from './Scheduled'
 import About from './About'
+import Ended from './Ended'
 
 const Main = _ => {
   const [drawerStatus, setDrawerStatus] = useState(false)
@@ -37,6 +38,7 @@ const Main = _ => {
     <Container className={classes.container} maxWidth='xl'>
       <Current />
       <Scheduled />
+      <Ended />
       <About />
     </Container>
   )

@@ -9,6 +9,7 @@ import MenuIcon from '@material-ui/icons/Menu'
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
 import PlayArrowIcon from '@material-ui/icons/PlayArrow'
 import ScheduleIcon from '@material-ui/icons/Schedule'
+import AlarmOnIcon from '@material-ui/icons/AlarmOn'
 
 const drawerWidth = 240
 
@@ -136,14 +137,15 @@ export default function Menu() {
         </List>
         <Divider />
         <List>
-          {['Live', 'Scheduled Lives'].map((text, index) => (
+          {['Live', 'Scheduled Lives', 'Ended'].map((text, index) => (
             <Link
               key={text}
               className={classes.link}
               href={`#${text.replaceAll(' ', '_').toLowerCase()}`}>
               <ListItem>
                 <ListItemIcon>{
-                  index === 0 ? <PlayArrowIcon /> : <ScheduleIcon />
+                  index === 0 ? <PlayArrowIcon /> :
+                  index === 1 ? <ScheduleIcon /> : <AlarmOnIcon />
                 }</ListItemIcon>
                 <ListItemText primary={text} />
               </ListItem>
