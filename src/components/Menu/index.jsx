@@ -88,8 +88,10 @@ export default function Menu() {
   const [open, setOpen] = useState(false)
 
   const localData = localStorage.getItem('HoloScheduleTheme')
-  const themeStatus = localData === null ? true : localData === 'light'
-  const [curTheme, setCurTheme] = useState(themeStatus) // false = dark
+
+  const [curTheme, setCurTheme] = useState(
+    localData === null ? true : localData === 'light'
+  ) // false = dark
 
   const handleDrawerOpen = _ => {
     PubSub.publish('DrawerStatus', true)

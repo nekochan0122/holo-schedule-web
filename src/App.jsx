@@ -11,10 +11,9 @@ import Main from './components/Main'
 const App = _ => {
   const localData = localStorage.getItem('HoloScheduleTheme')
 
-  const themeStatus = localData === null ? theme :
-        localData === 'light' ? theme : darkTheme
-
-  const [curTheme, setCurTheme] = useState(themeStatus)
+  const [curTheme, setCurTheme] = useState(
+    localData === null ? theme : localData === 'light' ? theme : darkTheme
+  )
 
   useEffect(_ => {
     localStorage.setItem('HoloScheduleTheme', curTheme.palette.type)
