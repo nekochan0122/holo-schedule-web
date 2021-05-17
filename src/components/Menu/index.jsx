@@ -93,14 +93,9 @@ export default function Menu() {
     localData === null ? true : localData === 'light'
   ) // false = dark
 
-  const handleDrawerOpen = _ => {
-    PubSub.publish('DrawerStatus', true)
-    setOpen(true)
-  }
-
-  const handleDrawerClose = _ => {
-    PubSub.publish('DrawerStatus', false)
-    setOpen(false)
+  const switchDrawer = _ => {
+    PubSub.publish('DrawerStatus', !open)
+    setOpen(!open)
   }
 
   const switchTheme = _ => {
@@ -120,7 +115,7 @@ export default function Menu() {
             color='secondary'
             edge='start'
             className={clsx(classes.menuButton, { [classes.hide]: open })}
-            onClick={handleDrawerOpen}>
+            onClick={switchDrawer}>
             <MenuIcon />
           </IconButton>
           <Typography color='secondary' className={classes.title} variant='h5' noWrap>
@@ -145,7 +140,7 @@ export default function Menu() {
             [classes.drawerClose]: !open,
           }),
         }}>
-        <List className={classes.toolbar} onClick={handleDrawerClose}>
+        <List className={classes.toolbar} onClick={switchDrawer}>
            <ListItem button className={classes.toolbar} >
             <ListItemIcon>
               <ChevronLeftIcon />
