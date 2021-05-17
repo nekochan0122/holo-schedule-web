@@ -13,7 +13,7 @@ const useStyles = makeStyles(theme => ({
   card: {
     width: 337,
     '&:hover': {
-      boxShadow: `8px 8px 10px ${theme.palette.grey[500]}`
+      boxShadow: `3px 3px 5px ${theme.palette.grey[500]}`
     }
   },
   title: {
