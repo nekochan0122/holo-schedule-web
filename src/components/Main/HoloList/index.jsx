@@ -34,7 +34,7 @@ const HoloList = props => {
   return (
     <Grid container justify='flex-start' className={classes.container}>{
       props.holoData === undefined || members.length === 0 || channels.length === 0 ?
-      <Typography variant='h6'>Loading...</Typography> :
+      <Typography color='primary' variant='h6'>Loading...</Typography> :
       props.holoData.map(dataObj => (
         <Grid item key={dataObj.id} className={classes.item}>
           <HoloCard {...dataObj} member={members.find(memObj => {

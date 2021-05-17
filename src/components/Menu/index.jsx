@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 
 import PubSub from 'pubsub-js'
 
@@ -10,6 +10,8 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
 import PlayArrowIcon from '@material-ui/icons/PlayArrow'
 import ScheduleIcon from '@material-ui/icons/Schedule'
 import AlarmOnIcon from '@material-ui/icons/AlarmOn'
+import Brightness7Icon from '@material-ui/icons/Brightness7' // light
+import Brightness4Icon from '@material-ui/icons/Brightness4' // dark
 
 const drawerWidth = 240
 
@@ -74,6 +76,9 @@ const useStyles = makeStyles(theme => ({
     '&:focus, &:hover, &:visited, &:link, &:active': {
       textDecoration: 'none',
     },
+  },
+  title: {
+    flexGrow: 1,
   }
 }))
 
@@ -82,18 +87,23 @@ export default function Menu() {
 
   const [open, setOpen] = useState(false)
 
-  useEffect(() => {
-    PubSub.publish('Component', 'all')
-  }, [])
+  const localData = localStorage.getItem('HoloScheduleTheme')
+  const themeStatus = localData === null ? true : localData === 'light'
+  const [curTheme, setCurTheme] = useState(themeStatus) // false = dark
 
-  const handleDrawerOpen = () => {
+  const handleDrawerOpen = _ => {
     PubSub.publish('DrawerStatus', true)
     setOpen(true)
   }
 
-  const handleDrawerClose = () => {
+  const handleDrawerClose = _ => {
     PubSub.publish('DrawerStatus', false)
     setOpen(false)
+  }
+
+  const switchTheme = _ => {
+    PubSub.publish('Theme', !curTheme)
+    setCurTheme(!curTheme)
   }
 
   return (
@@ -105,15 +115,20 @@ export default function Menu() {
         })}>
         <Toolbar>
           <IconButton
-            color='inherit'
+            color='secondary'
             edge='start'
             className={clsx(classes.menuButton, { [classes.hide]: open })}
             onClick={handleDrawerOpen}>
             <MenuIcon />
           </IconButton>
-          <Typography variant='h5' noWrap>
+          <Typography color='secondary' className={classes.title} variant='h5' noWrap>
             HoloSchedule
           </Typography>
+          <IconButton onClick={switchTheme}>{
+            curTheme ?
+            <Brightness7Icon color='secondary' /> :
+            <Brightness4Icon color='secondary' />
+          }</IconButton>
         </Toolbar>
       </AppBar>
       <Drawer
