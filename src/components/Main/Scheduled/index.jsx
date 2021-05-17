@@ -17,11 +17,11 @@ const Scheduled = _ => {
   useEffect(_ => {
     fetchData(setScheduled, getScheduled)
 
-    const refresh = setInterval(() => {
+    const refresh = setInterval(_ => {
       fetchData(setScheduled, getScheduled)
     }, 60 * 1000)
 
-    return () => clearInterval(refresh)
+    return _ => clearInterval(refresh)
   }, [])
 
   return (

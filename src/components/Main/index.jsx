@@ -13,10 +13,10 @@ import Ended from './Ended'
 const Main = _ => {
   const [drawerStatus, setDrawerStatus] = useState(false)
 
-  useEffect(() => {
+  useEffect(_ => {
     const drawerSubToken = PubSub.subscribe('DrawerStatus', (_, data) => setDrawerStatus(data))
 
-    return () => PubSub.unsubscribe(drawerSubToken)
+    return _ => PubSub.unsubscribe(drawerSubToken)
   }, [])
 
   const useStyle = makeStyles(theme => ({

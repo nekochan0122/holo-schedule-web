@@ -21,7 +21,7 @@ const HoloList = props => {
   const [members, setMembers] = useState([])
   const [channels, setChannels] = useState([])
 
-  useEffect(() => {
+  useEffect(_ => {
     fetchData(setMembers, getMembers)
     fetchData(setChannels, getChannels)
   }, [])

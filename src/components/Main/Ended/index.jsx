@@ -17,11 +17,11 @@ const Ended = _ => {
   useEffect(_ => {
     fetchData(setEnded, getEnded)
 
-    const refresh = setInterval(() => {
+    const refresh = setInterval(_ => {
       fetchData(setEnded, getEnded)
     }, 60 * 1000)
 
-    return () => clearInterval(refresh)
+    return _ => clearInterval(refresh)
   }, [])
 
   return (

@@ -17,11 +17,11 @@ const Current = _ => {
   useEffect(_ => {
     fetchData(setCurrent, getCurrent)
 
-    const refresh = setInterval(() => {
+    const refresh = setInterval(_ => {
       fetchData(setCurrent, getCurrent)
     }, 60 * 1000)
 
-    return () => clearInterval(refresh)
+    return _ => clearInterval(refresh)
   }, [])
 
   return (
